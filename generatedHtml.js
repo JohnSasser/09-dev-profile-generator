@@ -26,6 +26,7 @@ const colors = {
 };
 
 function generateHTML(data) {
+	console.log(data);
 	return `<!DOCTYPE html>
 <html lang="en">
    <head>
@@ -170,7 +171,11 @@ function generateHTML(data) {
             zoom: .75; 
           } 
          }
-      </style>`;
+      </style>
+      <body> 
+         <img src='${data.profileImg}'>
+      </body>`;
 }
 
+// html-pdf from npm to convert;
 module.exports = generateHTML;
