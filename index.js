@@ -4,9 +4,6 @@ const pdf = require("html-pdf");
 const inquirer = require("inquirer");
 const generatedHtml = require("./generatedHtml");
 
-var htmlSTR = fs.readFileSync("./index.html", "utf8");
-console.log(typeof htmlSTR);
-
 const questions = [
 	{
 		type: "input",
@@ -89,7 +86,7 @@ function init() {
 							.create(html, pdfOptions)
 							.toFile("./profile.pdf", function(err, res) {
 								if (err) return console.log(err);
-								console.log(res); // { filename: '/app/businesscard.pdf' }
+								console.log(res);
 							});
 					})
 				);
@@ -100,17 +97,3 @@ function init() {
 	});
 }
 init();
-
-// not working, don't know why.  No-one knows why;
-
-// function writeToFile(fileName, data) {
-// 	// the return is an object and we need to JSON.stringify it to work with it.
-// 	// const fileName = "generatedIndex.html";
-// 	fs.writeFile("index.html", html, "utf8", (err, data) => {
-// 		if (err) {
-// 			console.log(err);
-// 		} else {
-// 			console.log("Write file completed!");
-// 		}
-// 	});
-// }

@@ -34,7 +34,8 @@ function generatedHTML(data) {
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
       <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
-      <title>Document</title>
+
+      <title>GitHub Profile Aggregator</title>
       <style>
           @page {
             margin: 0;
@@ -154,14 +155,15 @@ function generatedHTML(data) {
          }
 
          .row {
-           display: flex;
-           flex-wrap: wrap;
-           justify-content: space-between;
+           
+           margin: 0 auto;
+           text-align: center;
            margin-top: 20px;
            margin-bottom: 20px;
          }
 
          .card {
+           position: relative;
            padding: 20px;
            border-radius: 6px;
            background-color: ${colors[data.color].headerBackground};
@@ -170,12 +172,18 @@ function generatedHTML(data) {
          }
          
          .col {
-         flex: 1
          text-align: center;
          }
 
          .left {
            float: left;
+         }
+
+         .stamp-left {
+           position: relative;
+           display: inline-block;
+           margin: 0 auto;
+           width: 40%;
          }
 
          a, a:hover {
@@ -224,38 +232,43 @@ function generatedHTML(data) {
           </div>
 
           <div class="container">
-        <div class="row">
-          <h5 class="col">
-            ${data.userBio}
-          </h5>
-        </div>
+            <div class="row">
+              <h5 class="col">
+                ${data.userBio}
+              </h5>
+            </div>
 
-        <div class="row left">
+            <div class="row left">
 
-          <div class="card col">
-            <h2>
-              Public Repos: ${data.repos}
-            </h2>
-          </div>
-          <div class="card col">
-            <h2>
-              GitHub Stars: ${data.stars}
-            </h2>
-          </div>
+              <div class="card col">
+                <h4>
+                  Public Repos: ${data.repos}
+                </h4>
+              </div>
+              <div class="card col">
+                <h4>
+                  GitHub Stars: ${data.stars}
+                </h4>
+                </div>
+
+            </div>
+
+            <div class="row left">
+
+              <div class="card col">
+                <h4>
+                  Following: ${data.following}
+                </h4>
+              </div>
+              <div class="card col">
+                <h4>
+                  Followers: ${data.followers}
+                </h4>
+              </div>
+
+            </div>
+
         </div>
-        <div class="row left">
-          <div class="card col">
-            <h2>
-              Following: ${data.following}
-            </h2>
-          </div>
-          <div class="card col">
-            <h2>
-              Followers: ${data.followers}
-            </h2>
-          </div>
-        </div>
-      </div>
 
       </div>
       <script src="https://kit.fontawesome.com/5f4b0fb1a5.js" crossorigin="anonymous"></script>
