@@ -32,10 +32,11 @@ It is there if your manager ever needs slicks on their employees github accounts
 - javascript
 - html5
 - npm packages
-- (fs)[https://www.npmjs.com/package/fs-js]
-- (html-pdf)[https://www.npmjs.com/package/html-pdf]
-- (inquirer)[https://www.npmjs.com/package/inquirer]
-- (axios)[https://www.npmjs.com/package/axios]
+
+[Fs](https://www.npmjs.com/package/fs-js)
+[Html-pdf](https://www.npmjs.com/package/html-pdf)
+[Inquirer](https://www.npmjs.com/package/inquirer)
+[Axios](https://www.npmjs.com/package/axios)
 
 # Banter
 
