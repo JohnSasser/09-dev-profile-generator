@@ -31,6 +31,11 @@ WHEN RUNNING IN THE COMMAND LINE, WAIT FOR THE PROMPT TO OPEN UP NEW .PDF DOCUME
 THERE WILL BE A CONSOLE LOG ALERTING YOU OF THE PROCESS COMPLETION.
 command line will also print the newly created file-path.
 
+# Installation / Usage
+
+clone to your device, open in you code editor and run command 'npm install'. Check package.json for npm packages. run 'node index.js'.
+The command line will prompt you for input from there.
+
 # Built with
 
 - javascript
