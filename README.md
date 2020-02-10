@@ -37,10 +37,10 @@ command line will also print the newly created file-path.
 - html5
 - npm packages
 
-[Fs](https://www.npmjs.com/package/fs-js)
-[Html-pdf](https://www.npmjs.com/package/html-pdf)
-[Inquirer](https://www.npmjs.com/package/inquirer)
-[Axios](https://www.npmjs.com/package/axios)
+- [Fs](https://www.npmjs.com/package/fs-js)
+- [Html-pdf](https://www.npmjs.com/package/html-pdf)
+- [Inquirer](https://www.npmjs.com/package/inquirer)
+- [Axios](https://www.npmjs.com/package/axios)
 
 # Banter
 
