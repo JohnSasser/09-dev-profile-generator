@@ -80,7 +80,7 @@ function init() {
 			});
 	});
 }
-
+// using html-pdf to create the new .pdf file;
 function createPdf(html) {
 	const pdfOptions = { format: "Letter", orientation: "portrait" };
 	pdf.create(html, pdfOptions).toFile("./profile.pdf", function(err, res) {

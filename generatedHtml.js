@@ -25,6 +25,7 @@ const colors = {
 	}
 };
 
+// values coming from the init(), specificity "const html" line 71, in the index.js file;
 function generatedHTML(data) {
 	return `<!DOCTYPE html>
 <html lang="en">
