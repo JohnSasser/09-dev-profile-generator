@@ -54,5 +54,5 @@ npm packages:
     while(noSuccess){
         tryAgain();
     if(dead)
-    breakComputer();
+    break();
     }
