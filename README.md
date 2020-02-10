@@ -40,7 +40,8 @@ The command line will prompt you for input from there.
 
 - javascript
 - html5
-- npm packages
+
+npm packages:
 
 - [Fs](https://www.npmjs.com/package/fs-js)
 - [Html-pdf](https://www.npmjs.com/package/html-pdf)
