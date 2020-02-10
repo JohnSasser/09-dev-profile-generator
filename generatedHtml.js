@@ -155,7 +155,6 @@ function generatedHTML(data) {
          }
 
          .row {
-           
            margin: 0 auto;
            text-align: center;
            margin-top: 20px;
@@ -274,8 +273,7 @@ function generatedHTML(data) {
       <script src="https://kit.fontawesome.com/5f4b0fb1a5.js" crossorigin="anonymous"></script>
       </body>`;
 }
-
-// html-pdf from npm to convert;
+// export generateHtml.js to be required in the index.js
 module.exports = {
 	generatedHTML: generatedHTML
 };

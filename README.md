@@ -27,6 +27,10 @@ The PDF will display:
 This is is built with .js, node.js, npm packages = [fs, axios, html-pdf, inquirer].
 It is there if your manager ever needs slicks on their employees github accounts.
 
+WHEN RUNNING IN THE COMMAND LINE, WAIT FOR THE PROMPT TO OPEN UP NEW .PDF DOCUMENTS.
+THERE WILL BE A CONSOLE LOG ALERTING YOU OF THE PROCESS COMPLETION.
+command line will also print the newly created file-path.
+
 # Built with
 
 - javascript

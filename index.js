@@ -1,9 +1,15 @@
+// require fs to write file;
 const fs = require("fs");
+// require axios to make the api call;
 const axios = require("axios");
+// require html-pdf to convert generatedHTML function directly to pdf format;
 const pdf = require("html-pdf");
+// require inquirer to prompt the command line user;
 const inquirer = require("inquirer");
+// require the generatedHtml.js file for the html;
 const generatedHtml = require("./generatedHtml");
 
+// command line input questions called in the prompt.
 const questions = [
 	{
 		type: "input",
@@ -19,14 +25,14 @@ const questions = [
 ];
 
 function init() {
-	// data obj is where we are going to push the inquirer `answers`
-	// & axios `res.data` so we can push a single object to generatedHtml to return the completed html doc;
+	// data obj holds value returns form axios.
 	const data = {};
 
 	inquirer.prompt(questions).then(answers => {
+		// define api url's in var;
 		let gitUsers = `https://api.github.com/users/${answers.username}`;
 		let gitStars = `https://api.github.com/users/${answers.username}/starred`;
-
+		// give url vars' an axios.get request call;
 		const requestGitUsers = axios.get(gitUsers);
 		const requestGitStars = axios.get(gitStars);
 
@@ -36,17 +42,15 @@ function init() {
 		return axios
 			.all([requestGitUsers])
 			.then(() => {
+				// request both calls simultaneously;
 				return axios.all([requestGitUsers, requestGitStars]).then(
 					axios.spread((...res) => {
 						const responseGitUsers = res[0];
 						const responseGitStars = res[1];
 
-						// res from res[0]
+						// res from res[0];
 						data.profileImg = responseGitUsers.data.avatar_url;
 						data.hireable = responseGitUsers.data.hireable;
-						// if (data.hireable == true) {
-						// 	return "yes";
-						// } else return "no";
 
 						data.location = responseGitUsers.data.location;
 						data.profile = responseGitUsers.data.html_url;
@@ -54,40 +58,20 @@ function init() {
 
 						data.username = responseGitUsers.data.name;
 						data.userBio = responseGitUsers.data.bio;
-						console.log(responseGitUsers.data.bio);
 
 						data.repos = responseGitUsers.data.public_repos;
 						data.followers = responseGitUsers.data.followers;
 						data.following = responseGitUsers.data.following;
 
-						// res from res[1]
+						// res from res[1];
 						data.stars = responseGitStars.data.length;
+						// console.log(data);
 
-						// responseGitStars.data.stargazers_count.forEach();
-
-						console.log(data);
-
-						// calling the html function from generatedHtml.js,
-						// putting the data obj into the html,
-						// needs the template literal keys in html to know where to go;
-
+						// send generatedHtml.js the data obj values.
 						const html = generatedHtml.generatedHTML(data);
 
-						// fs.writeFile("index.html", html, "utf8", err => {
-						// 	if (err) {
-						// 		console.log(err);
-						// 	} else {
-						// 		console.log("Write file completed!");
-						// 	}
-						// });
-
-						const pdfOptions = { format: "Letter", orientation: "portrait" };
-						pdf
-							.create(html, pdfOptions)
-							.toFile("./profile.pdf", function(err, res) {
-								if (err) return console.log(err);
-								console.log(res);
-							});
+						// createHtml(html);
+						createPdf(html);
 					})
 				);
 			})
@@ -96,4 +80,24 @@ function init() {
 			});
 	});
 }
+
+function createPdf(html) {
+	const pdfOptions = { format: "Letter", orientation: "portrait" };
+	pdf.create(html, pdfOptions).toFile("./profile.pdf", function(err, res) {
+		if (err) return console.log(err);
+		console.log(res);
+	});
+	console.log(".PDF CREATED!");
+}
+
+// function createHtml(html) {
+// 	fs.writeFile("index.html", html, "utf8", err => {
+// 		if (err) {
+// 			console.log(err);
+// 		} else {
+// 			console.log("Write file completed!");
+// 		}
+// 	});
+// }
+
 init();
