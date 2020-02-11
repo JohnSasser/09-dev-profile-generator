@@ -73,8 +73,10 @@ inquirer
 
 function createHtml(html) {
 	const pdfOption = { format: "Letter", orientation: "portrait" };
-	pdf.create(html, pdfOption).toFile("./pdf/gitProfile.pdf", (err, res) => {
-		if (err) return console.log(err);
-	});
+	pdf
+		.create(html, pdfOption)
+		.toFile("./createdPdf/gitProfile.pdf", (err, res) => {
+			if (err) return console.log(err);
+		});
 	console.log(".pdf created successfully!");
 }

@@ -91,7 +91,7 @@ function init() {
 // }
 
 function createHtml(html) {
-	fs.writeFile("./html/index.html", html, "utf8", err => {
+	fs.writeFile("./createdHtml/index.html", html, "utf8", err => {
 		if (err) {
 			console.log(err);
 		} else {
