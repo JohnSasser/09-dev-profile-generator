@@ -1,6 +1,6 @@
 # 09-dev-profile-generator
 
-It will get your whole teams info for sales slicks.
+Both the await.js & index.js work and will render the same result.
 
 # Description
 

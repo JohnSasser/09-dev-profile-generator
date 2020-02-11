@@ -28,7 +28,7 @@ const questions = [
 
 inquirer
 	.prompt(questions)
-
+	// AXIOS request exists in the answers callback;
 	.then(async answers => {
 		let gitUsers = `https://api.github.com/users/${answers.username}`;
 		let gitStars = `https://api.github.com/users/${answers.username}/starred`;
@@ -40,27 +40,27 @@ inquirer
 		data.color = answers.color.toLowerCase();
 		// * gitUsers responses;
 
-		// profile picture
+		// profile picture.
 		data.profileImg = responseGitUsers.data.avatar_url;
-		// hireable boolean
+		// hireable boolean.
 		data.hireable = responseGitUsers.data.hireable;
-		// current location
+		// current location.
 		data.location = responseGitUsers.data.location;
-		// profile url
+		// profile url.
 		data.profile = responseGitUsers.data.html_url;
-		// blog link
+		// blog link.
 		data.blog = responseGitUsers.data.blog;
-		// bio in profile
+		// bio in profile.
 		data.userBio = responseGitUsers.data.bio;
-		// # of public repositories
+		// # of public repositories.
 		data.repos = responseGitUsers.data.public_repos;
-		// # of followers
+		// # of followers.
 		data.followers = responseGitUsers.data.followers;
-		// # of following
+		// # of following.
 		data.following = responseGitUsers.data.following;
 		// * gitStars response;
 
-		// # of stared repos from page;
+		// # of stared repos from page.
 		data.stars = responseGitStars.data.length;
 
 		const html = generatedHtml.generatedHTML(data);
@@ -72,11 +72,9 @@ inquirer
 	});
 
 function createHtml(html) {
-	fs.writeFile("profile.html", html, "utf8", err => {
-		if (err) {
-			throw err;
-		} else {
-			console.log("new file written!");
-		}
+	const pdfOption = { format: "Letter", orientation: "portrait" };
+	pdf.create(html, pdfOption).toFile("./gitProfile.pdf", (err, res) => {
+		if (err) return console.log(err);
 	});
+	console.log(".pdf created successfully!");
 }
