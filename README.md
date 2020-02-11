@@ -20,7 +20,7 @@ The PDF will display:
 - Number of GitHub stars
 - Number of users following
 
-![photo of project](./profile-gen-pdf.png)
+![photo of project](./ezgif.com-optimize.gif)
 
 # About
 
