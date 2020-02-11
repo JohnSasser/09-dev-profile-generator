@@ -71,7 +71,7 @@ function init() {
 						const html = generatedHtml.generatedHTML(data);
 
 						// createHtml(html);
-						createPdf(html);
+						createHtml(html);
 					})
 				);
 			})
@@ -81,23 +81,23 @@ function init() {
 	});
 }
 // using html-pdf to create the new .pdf file;
-function createPdf(html) {
-	const pdfOptions = { format: "Letter", orientation: "portrait" };
-	pdf.create(html, pdfOptions).toFile("./profile.pdf", function(err, res) {
-		if (err) return console.log(err);
-		console.log(res);
-	});
-	console.log(".PDF CREATED!");
-}
-
-// function createHtml(html) {
-// 	fs.writeFile("index.html", html, "utf8", err => {
-// 		if (err) {
-// 			console.log(err);
-// 		} else {
-// 			console.log("Write file completed!");
-// 		}
+// function createPdf(html) {
+// 	const pdfOptions = { format: "Letter", orientation: "portrait" };
+// 	pdf.create(html, pdfOptions).toFile("./pdf/profile.pdf", function(err, res) {
+// 		if (err) return console.log(err);
+// 		console.log(res);
 // 	});
+// 	console.log(".PDF CREATED!");
 // }
+
+function createHtml(html) {
+	fs.writeFile("./html/index.html", html, "utf8", err => {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log("Write file completed!");
+		}
+	});
+}
 
 init();
