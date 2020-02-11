@@ -64,19 +64,17 @@ inquirer
 		data.stars = responseGitStars.data.length;
 
 		const html = generatedHtml.generatedHTML(data);
-		createHtml(html);
+		createPdf(html);
 		console.log(data);
 	})
 	.catch(err => {
 		throw err;
 	});
 
-function createHtml(html) {
+function createPdf(html) {
 	const pdfOption = { format: "Letter", orientation: "portrait" };
-	pdf
-		.create(html, pdfOption)
-		.toFile("./createdPdf/gitProfile.pdf", (err, res) => {
-			if (err) return console.log(err);
-		});
+	pdf.create(html, pdfOption).toFile("./createdPdf/gitProfile.pdf", err => {
+		if (err) return console.log(err);
+	});
 	console.log(".pdf created successfully!");
 }
